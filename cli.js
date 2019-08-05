@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 rq = require("request");
 fs = require("fs");
 
