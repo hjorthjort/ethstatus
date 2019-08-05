@@ -1,0 +1,19 @@
+{
+  "name": "ethstatus",
+  "version": "0.0.1",
+  "description": "Grab info on your ether and tokens, suitable as a shell script.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "ethereum",
+    "ether",
+    "crypto"
+  ],
+  "author": "Rikard Hjort",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
