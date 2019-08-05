@@ -14,11 +14,13 @@ const printResponse = (err, resp, body) => {
     outputArr.push("ETH: " + res["ETH"]["balance"]);
 
     let tokens = res["tokens"];
-    for (let i = 0; i < tokens.length; i++) {
-        let tok = tokens[i];
-        let name = tok["tokenInfo"]["name"];
-        let bal = tok["balance"];
-        outputArr.push(name + ": " + bal);
+    if (tokens) {
+        for (let i = 0; i < tokens.length; i++) {
+            let tok = tokens[i];
+            let name = tok["tokenInfo"]["name"];
+            let bal = tok["balance"];
+            outputArr.push(name + ": " + bal);
+        }
     }
     console.log(outputArr.join("\n"));
 };
