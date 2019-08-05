@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
+addrs = require("./addresses.json");
+
 rq = require("request");
-fs = require("fs");
 printf = require("printf");
 
 const API = "http://api.ethplorer.io/";
@@ -41,18 +42,9 @@ const printPretty = (addr) => (err, resp, body) => {
 
 
 // Main.
-
-fs.readFile("address.txt", (err, addrs) => {
-    if (err) {
-        console.log(err);
-        return ;
-    }
-    addrs = "" + addrs;
-    addrs = addrs.trim();
-    addrs = addrs.split("\n");
-    for (let i = 0; i < addrs.length; i++) {
-        let addr = addrs[i];
-        let request = API + "getAddressInfo/" + addr + KEY;
-        rq.get(API + "getAddressInfo/" + addr  + KEY, printPretty(addr));
-    }
-});
+addrs = addrs.split(",");
+for (let i = 0; i < addrs.length; i++) {
+    let addr = addrs[i];
+    let request = API + "getAddressInfo/" + addr + KEY;
+    rq.get(API + "getAddressInfo/" + addr  + KEY, printPretty(addr));
+}
